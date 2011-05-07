@@ -81,6 +81,8 @@ class Command(BaseCommand):
             log.error("Please consult the documentation or use --help for more information.")
             return
 
+        if not sender:
+            sender = "TEONITE Deployment Notificator <no-reply@teonite.net>"
 
         try:
             people = User.objects.filter(is_superuser=True).order_by('last_name')
